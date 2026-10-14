@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lofi Campfire Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></symbol>
+<symbol id="pause" viewBox="0 0 24 24"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></symbol>
+<symbol id="prev" viewBox="0 0 24 24"><path d="M6 5h2v14H6zM20 5v14L9 12z"/></symbol>
+<symbol id="next" viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM4 5v14l11-7z"/></symbol>
+<symbol id="dl" viewBox="0 0 24 24"><path d="M11 3h2v9l3.5-3.5 1.4 1.4L12 15.8 6.1 9.9l1.4-1.4L11 12zM5 18h14v3H5z"/></symbol>
+<symbol id="list" viewBox="0 0 24 24"><path d="M4 6h12v2H4zm0 5h12v2H4zm0 5h8v2H4zM18 4v10.3A3 3 0 1 0 20 17V8h2V4z"/></symbol>
+<symbol id="up" viewBox="0 0 24 24"><path d="M11 16V8L8 11 6.6 9.6 12 4.2l5.4 5.4L16 11l-3-3v8zM5 18h14v2H5z"/></symbol>
+<symbol id="x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.4" fill="none"/></symbol>
+<symbol id="note" viewBox="0 0 24 24"><path d="M9 3v11.3A3.5 3.5 0 1 0 11 17.5V8l8-2V3z"/></symbol>
+</defs></svg>
+<canvas id="c"></canvas>
+
+<header id="bar" class="g">
+  <div id="disc"><svg class="i"><use href="#note"/></svg></div>
+  <div><div id="ttl">Lofi Campfire</div><div id="sub">Tempel link &amp; mulai</div></div>
+  <button class="b" id="prev" title="Sebelumnya"><svg class="i"><use href="#prev"/></svg></button>
+  <button class="b p" id="pp" title="Putar / jeda"><svg class="i"><use href="#play"/></svg></button>
+  <button class="b" id="next" title="Berikutnya"><svg class="i"><use href="#next"/></svg></button>
+  <button class="b" id="dlb" title="Unduh" style="color:#6ee7b7"><svg class="i"><use href="#dl"/></svg></button>
+  <button class="b" id="th" title="Ganti tema">🌙</button>
+  <button class="b" id="tg" title="Daftar putar"><svg class="i"><use href="#list"/></svg></button>
+</header>
+
+<section id="mix" class="g">
+  <h4><span>Ambient Mixer</span><span style="display:flex;align-items:center;gap:6px"><span id="st" style="font:600 10px Manrope;color:#6ee7b7">● live</span><button class="b" id="mn" title="Minimize" aria-label="Minimize mixer" style="width:28px;height:28px;font-size:18px">–</button></span></h4>
+  <div class="r"><div><span>🌧 Hujan</span><b id="v0">0%</b></div><input type="range" id="s0" value="0"></div>
+  <div class="r"><div><span>🔥 Api unggun</span><b id="v1">45%</b></div><input type="range" id="s1" value="45"></div>
+  <div class="r"><div><span>🌬 Angin malam</span><b id="v2">25%</b></div><input type="range" id="s2" value="25"></div>
+</section>
+
+<aside id="panel" class="g">
+  <div class="row" style="justify-content:space-between;align-items:center"><h3>Putar Musik</h3><button class="b" id="cl" style="width:28px;height:28px"><svg class="i"><use href="#x"/></svg></button></div>
+  <div class="row"><input id="url" placeholder="Tempel link YouTube / Spotify / .mp3"><button class="btn" id="add">Putar</button></div>
+  <div class="row"><button class="btn o" id="fb" style="flex:1"><svg class="i"><use href="#up"/></svg> Dari perangkat</button><button class="btn o" id="dl2" style="flex:1"><svg class="i"><use href="#dl"/></svg> Unduh</button></div>
+  <input type="file" id="file" accept="audio/*" hidden>
+  <div id="pl"></div>
+  <a id="ext" class="btn o" target="_blank" rel="noopener" style="display:none;text-decoration:none;color:inherit"></a>
+  <div id="seek"><span id="tc">0:00</span><input type="range" id="sk" value="0" max="1000"><span id="td">0:00</span></div>
+  <div id="q"></div>
+  <p class="hint">YouTube &amp; Spotify diputar lewat player resmi. Link audio langsung (.mp3, .m4a, .ogg, .wav) atau file dari perangkat bisa diputar <b>dan diunduh</b>.</p>
+</aside>
+
+<div id="toast" class="g"></div>
+<div id="start"><div><h1>Lofi Campfire</h1><p>Api unggun, bintang, dan musik untuk menemanimu belajar.</p><button class="btn" id="go"><svg class="i"><use href="#play"/></svg> Mulai suasana</button></div></div>
+
+<script src="js/scene.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/player.js"></script>
+</body>
+</html>
