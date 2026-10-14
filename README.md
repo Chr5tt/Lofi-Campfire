@@ -6,10 +6,10 @@
 *A cozy lofi campfire with an animated night scene, ambient mixer, and a player for your own links.*
 
 [![Live Demo](https://img.shields.io/badge/▶_Live_Demo-ff8a3d?style=for-the-badge)](https://chr5tt.github.io/Lofi-Campfire/)
-![HTML](https://img.shields.io/badge/HTML5-e34f26?style=flat-square&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572b6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-f7df1e?style=flat-square&logo=javascript&logoColor=black)
-![No build](https://img.shields.io/badge/no_build-zero_dependencies-6ee7b7?style=flat-square)
+[![HTML](https://img.shields.io/badge/HTML5-e34f26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS](https://img.shields.io/badge/CSS3-1572b6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-f7df1e?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![No build](https://img.shields.io/badge/no_build-zero_dependencies-6ee7b7?style=flat-square)](https://www.no-build.com/)
 
 <img width="960" height="540" alt="preview" src="https://github.com/user-attachments/assets/84d72c8c-7a46-4f94-a4ab-aa1fa2c5a277" />
 
