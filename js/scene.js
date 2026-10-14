@@ -4,7 +4,7 @@ const cv=$('#c'),x=cv.getContext('2d');
 let W,H,S,gy,stars=[],trees=[],T0=performance.now();
 const rnd=(a,b)=>a+Math.random()*(b-a);
 let playing=false,mx=0,rain=0,wind=25;
-function rs(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;x.setTransform(d,0,0,d,0,0);S=Math.max(.55,Math.min(W/950,H/650,1.25));gy=H*.8;
+function rs(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;x.setTransform(d,0,0,d,0,0);const mb=W<700;S=mb?Math.min(W/540,H/900,1):Math.max(.55,Math.min(W/950,H/650,1.25));gy=H*(mb?.56:.8);
  stars=Array.from({length:230},()=>({x:Math.random(),y:Math.random()*.62,r:rnd(.4,1.7),p:rnd(0,6.3),s:rnd(.6,2)}));
  trees=Array.from({length:Math.ceil(W/55)},(_,i)=>({x:i*55+rnd(-18,18),h:rnd(80,170)*S,f:false,k:rnd(0,6)}));trees.forEach(r=>{r.f=Math.random()<.5&&(r.x<W*.14||r.x>W*.86)})}
 addEventListener('resize',rs);rs();

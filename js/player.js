@@ -36,8 +36,10 @@ async function dl(){const q=Q[cur];if(!q)return toast('Belum ada lagu yang dipil
  toast('Menyiapkan unduhan…');try{const r=await fetch(q.u);const b=await r.blob();const u=URL.createObjectURL(b);go(u);setTimeout(()=>URL.revokeObjectURL(u),9e3);toast('Terunduh: '+q.t)}catch(e){window.open(q.u,'_blank');toast('Dibuka di tab baru. Simpan dari sana.')}}
 $('#dlb').onclick=dl;$('#dl2').onclick=dl;
 $('#th').onclick=()=>{mode=(mode+1)%3;$('#th').textContent=['🌙','🌇','❄️'][mode];toast(['Malam berbintang','Senja hangat','Malam bersalju'][mode])};
-$('#mn').onclick=()=>{const m=$('#mix').classList.toggle('min');$('#mn').textContent=m?'+':'–';$('#mn').title=m?'Buka mixer':'Minimize'};
-const panel=$('#panel');$('#tg').onclick=()=>panel.classList.toggle('shut');$('#cl').onclick=()=>panel.classList.add('shut');
+function minMix(m){$('#mix').classList.toggle('min',m);$('#mn').textContent=m?'+':'–';$('#mn').title=m?'Buka mixer':'Minimize'}
+$('#mn').onclick=()=>{const m=!$('#mix').classList.contains('min');minMix(m);if(!m&&innerWidth<900)panel.classList.add('shut')};
+if(innerWidth<900)minMix(true);
+const panel=$('#panel');$('#tg').onclick=()=>{panel.classList.toggle('shut');if(innerWidth<900&&!panel.classList.contains('shut'))minMix(true)};$('#cl').onclick=()=>panel.classList.add('shut');
 if(innerWidth<900)panel.classList.add('shut');
-$('#go').onclick=()=>{$('#start').style.display='none';initA();if(Q.length)load(0);else{panel.classList.remove('shut');$('#url').focus()}};
+$('#go').onclick=()=>{$('#start').style.display='none';initA();if(Q.length)load(0);else if(innerWidth>=900){panel.classList.remove('shut');$('#url').focus()}else toast('Ketuk ikon daftar putar ♫ di atas untuk menempel link')};
 render();
